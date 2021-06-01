@@ -54,11 +54,7 @@ router.post('/admin/mark', (req, res) => {
   const sub = req.body.sub_code;
   const { time } = req.body;
   const { date } = req.body;
-  // connection.query('select sub_code from subject where sem=? order by credit DESC',[input],(err,results)=>{
-  //    if(err) throw err;
-  //    if(results.length>0){
   const values = [sub, date];
-  //  let sql='ALTER table attendance add column ( ?  varchar(2));'
   connection.query('insert into attendance (semester,time,subCode,date) values(?,?,?,?);', [semester, time, sub, date], (err, results) => {
     if (err) {
       console.log(err);
@@ -76,9 +72,12 @@ router.post('/admin/mark', (req, res) => {
     }
   });
 
-// }
+
 });
 
+router.get('/admin/edit_attendance', (req, res) => {
+  res.render('edit_attendance', { userData: username,success: '' });
+});
 router.get('/attendance/report', (req, res) => {
   res.render('report_generate', { userData: username });
 });

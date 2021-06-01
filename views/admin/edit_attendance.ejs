@@ -3,17 +3,29 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMS | attendance</title>
+  <title>AMS | Attendance</title>
   <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
   
+  <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- jsGrid -->
-  <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid.min.css">
-  <link rel="stylesheet" href="../../plugins/jsgrid/jsgrid-theme.min.css">
+  <link rel="stylesheet" href="/plugins/fontawesome-free/css/all.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="/public/css/adminlte.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="/plugins/daterangepicker/daterangepicker.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -25,9 +37,12 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/views/admin/admin_dashboard.html" class="nav-link">Dashboard</a>
+      </li>
     </ul>
     <ul class="navbar-nav ml-auto">
+      
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt" data-bs-toggle="tooltip"  data-bs-placement="left"  title="Full Screen"></i>
@@ -108,7 +123,7 @@
                         <p>Class Info</p>
                       </a>
                     </li>
-                    
+                  
                     <li class="nav-item">
                       <a href="/admin/faculty_subject" class="nav-link  ">
                         <i class="far fa-dot-circle nav-icon"></i>
@@ -123,33 +138,33 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-copy"></i>
               <p>
-                attendance
+                Attendance
                 <i class="fas fa-angle-left right"></i>
                 <span class="badge badge-info right"></span>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item menu-open">
-                <a href="#" class="nav-link">
+                <a href="pages/layout/fixed-sidebar.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>III IT</p>
                   <i class="right fas fa-angle-left"></i>
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="/admin/mark-attendance" class="nav-link active ">
+                    <a href="/admin/mark_attendance" class="nav-link  ">
                       <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Mark attendance</p>
+                      <p>Mark Attendance</p>
                     </a>
                   </li>
                   <li class="nav-item">
-                    <a href="/admin/edit_attendance" class="nav-link  ">
+                    <a href="/admin/edit_attendance" class="nav-link active ">
                       <i class="far fa-dot-circle nav-icon"></i>
-                      <p>Edit attendance</p>
+                      <p>Edit Attendance</p>
                     </a>
                     </li>
                   <li class="nav-item">
-                    <a href="#" class="nav-link  ">
+                    <a href="/attendance/report" class="nav-link  ">
                       <i class="far fa-dot-circle nav-icon"></i>
                       <p>Report Generate</p>
                     </a>
@@ -231,8 +246,10 @@
                 </li>
               
             </ul>
-          </li>     
-        </ul>
+          </li>
+          </li>
+          
+       
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -246,103 +263,110 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">attendance</h1>
+            <h1 class="m-0">Attendance</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
               <li class="breadcrumb-item ">Dashboard</li>
-              <li class="breadcrumb-item ">attendance</li>
-              <li class="breadcrumb-item active">Mark attendance</li>
-            </div>
-          </div>
-        </div><!-- /.container-fluid -->
-      </section>
-  
-      <!-- Main content -->
-      <section class="content">
-        <div class="card">
+              <li class="breadcrumb-item ">Attendance</li>
+              <li class="breadcrumb-item active">Edit Attendance</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
           <% if(success!=''){%>
             <div class="alert alert-success alert-dismissible col-5">
               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
               <%= success %>
             </div>
             <%}%>
-          
-          <!-- /.card-header -->
-          <div class="card-header ">
-            <h3 class="card-title " >attendance</h3>
-          </div>
-          <!-- /.card-header -->
-          <form action ="/admin/attendence/submit/<%= sem%>/<%= time%>/<%= subject%>/<%= date%>" method="POST">
-          <div class="card-body col-9">
-            <span class="tootltip-r" data-toggle="tooltip" data-placement="center" title="Select 6 columns from column visibility to view in pdf"></span>
-            <table width="100" id="example1"  class="table table-bordered table-responsive students-list">
+            <div class="row">
+              <!-- left column -->
+              <div class="col-md-5">
+		<div class="card card-primary">
+            <form action="/admin/mark" method="POST">
+            <div class="card-header">
+              <h3 class="card-title">Edit Attendance</h3>
+            </div>
+            <!-- /.card-header -->
+           
+            <div class="card-body">
+              <div class="form-group">
+                <label for="semester" class=" col-form-label">Choose Semester</label><br>
             
-              <thead>
-              <tr align="center" class="col-7">
+                <select class="form-control select2 col-md-7" id="semester" name="semester" >                        
+                  <option value="">Choose</option>
+                  <option value="5">Semester 5</option>
+                  <option value="6">Semester 6</option>
+              </select>
+              </div>
+
+              <div class="form-group">
+                <label for="time" class=" col-form-label">Choose Time</label><br>
                
-                <th  width="10%">FirstName</th>
-                <th width="10%">LastName</th>
-                <th width="10%">Roll No</th>
-                <th width="10%">Present/Absent</th>
-      
-              </tr>
-              </thead>
-            <tbody>
-              <% if(studentData.length!=0){%>
-                <%var i=1;%>
-                <%studentData.forEach(function(data){%>
-                <tr>
-                    
-                    <td><%=data.firstname %></td>
-                    <td><%=data.lastname %></td>
-                    <td><%=data.rollno %></td>
-                    <td>
-                      <label name="at">
-                        <select class="form-control select2" id="att" name="att" style="width: 100%;">
-                        
-                          <option value='P' >Present</option>
-                          <option value='A'>Absent</option>
-                          
-                      </select>
-                     
-                     
-                    <input name="SelectedValues"   type="hidden" value="">
-                  </label>         
-                   </td>
-                  </tr>
-                  <% i++ })%>
-                  <% }%>
+                <select class="form-control select2 col-md-7" id="time" name="time" >                        
+                  <option value="">Choose</option>
+                  <option value="8:30 - 9:15">8:30 - 9:15</option>
+                  <option value="9:15 - 10.00">9:15 - 10.00</option>
+                  <option value="10:00 - 10.45">10:00 - 10.45</option>
+                  <option value="11.00 - 11.45">11.00 - 11.45</option>
+                  <option value="11:45 - 12:30">11:45 - 12:30</option>
+                  <option value="1:20 - 2:05">1:20 - 2:05</option>
+                  <option value="2:05 - 2:50">2:05 - 2:50</option>
+                  <option value="3:05 - 3:50">3:05 - 3:50</option>
+                  <option value="3:50 - 4:35">3:50 - 4:35</option>
+                  <option value="4:35 - 5:30">4:35 - 5:30</option>
+              </select>
+              </div>
               
-            </tbody>
-            <button type="submit"  onclick="getValue()" class="btn btn-primary">Submit</button>
-            <script>
-             function getValue() {
-               var label=document.getElementsByName("at");
-              label.value = '';
-              var arr=[];
-              for(var i=0;i<controls.length;i++){
-              var present= document.getElementById("checkbox1")
-              if(present.checked){
-                arr[i]= document.getElementById("checkbox1").value;
-               
-             }else{
-              label.value = "A"+',';
-             }
-             
+              
+              <div class="form-group">
+              <label for="inputsub">Subject Code</label>
+                        <div class="col-sm-7">
+                          <input type="text" class="  form-control rounded-0" name="sub_code" id="inputSub"  required>
+                        </div>
             
-            }
-              }
-                </script>
-           </form>
-          </table>
+           
+                      </div>
+                      <div class="form-group">
+                        <label for="inputdate">Date </label>
+                                  <div class="col-sm-7">
+                                    <input type="date" class="  form-control rounded-0" name="date" id="inputdate"  required>
+                                  </div>
+                    </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+           
         </div>
-       </div>
-      </div>
-     </div>
-  </section>    
-</div>
+            </form>
+    </div></div></div></div>
+          </section>
+          <section class="col-lg-5 connectedSortable">
+          
+              </div>
+              
+              <div class="card-body pt-0">
+                <!--The calendar -->
+                <div id="calendar" style="width: 100%"></div>
+              </div> 
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </section>
+          <!-- right col -->
+        </div>
+        <!-- /.row (main row) -->
+      </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
   <footer class="main-footer">
     <strong>Copyright &copy; 2021-2022 <a href="https://adminlte.io">AMS</a>.</strong>
     All rights reserved.
@@ -350,6 +374,9 @@
       <b>Version</b> 1.1.0-rc
     </div>
   </footer>
+
+  <!-- Control Sidebar -->
+   <!-- Control sidebar content goes here -->
   <aside class="control-sidebar control-sidebar-dark">
    
   </aside>
@@ -357,36 +384,39 @@
 </div>
 <!-- ./wrapper -->
 
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- jsGrid -->
-<script src="../../plugins/jsgrid/demos/db.js"></script>
-<script src="../../plugins/jsgrid/jsgrid.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<!-- jQuery -->
+<script src="/plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="/plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-    $(function () {
-      $("#jsGrid1").jsGrid({
-         height:"100%",
-         width:"75%",
-  
-          sorting: true,
-          paging: true,
-  
-          data: db.clients,
-  
-          fields: [
-              { name: "Name", type: "text", width: 150 },
-              { name: "Rollno", type: "number", width: 50 },
-              { name: "Date", type: "date", width: 200 },
-             
-              { name: "Present", type: "checkbox", title: "Present" }
-          ]
-      });
-    });
-  </script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="/plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="/plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="/plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="/plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="/plugins/moment/moment.min.js"></script>
+<script src="/plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="/dist/js/adminlte.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="/dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="/dist/js/pages/dashboard.js"></script>
 </body>
 </html>
