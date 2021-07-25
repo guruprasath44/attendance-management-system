@@ -28,7 +28,6 @@
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -38,7 +37,6 @@
       </li>
      
     </ul>
-
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
@@ -53,7 +51,6 @@
     </ul>
   </nav>
   <!-- /.navbar -->
-
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -61,7 +58,6 @@
       <i class="fas fa-arrow-circle-left" ></i>
       <span class="brand-text font-weight-light">Logout</span>
     </a>
-
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
@@ -73,7 +69,6 @@
           <a href="/admin/faculty_profile" class="d-block"><%= name%></a>
         </div>
       </div>
-
       <!-- SidebarSearch Form -->
       <div class="form-inline">
         <div class="input-group" data-widget="sidebar-search">
@@ -85,7 +80,6 @@
           </div>
         </div>
       </div>
-
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -164,7 +158,7 @@
                       </a>
                       </li>
                     <li class="nav-item">
-                      <a href="#" class="nav-link  ">
+                      <a href="/attendance/report" class="nav-link  ">
                         <i class="far fa-dot-circle nav-icon"></i>
                         <p>Report Generate</p>
                       </a>
@@ -257,7 +251,6 @@
     </div>
     <!-- /.sidebar -->
   </aside>
-
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -285,14 +278,12 @@
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
     <!-- Main content -->
     
     <section class="content">
       <div class="container-fluid">
         <div class="row">
           <div class="col-md-4">
-
             <!-- Profile Image -->
             <div class="card card-primary card-outline">
               <div class="card-body box-profile">
@@ -303,11 +294,8 @@
                 <% if(userData.length!=0){%>
                   
                   <%userData.forEach(function(data){%>
-
                 <h3 class="profile-username text-center"><%=data.firstname %> <%=data.lastname%></h3>
-
                 <p class="text-muted text-center">Assistant Professor</p>
-
                 <ul class="list-group list-group-unbordered mb-3">
                   <li class="list-group-item">
                     <b>Department</b> <a class="float-right">Information Technology</a>
@@ -319,13 +307,11 @@
                     <b>Phone no.</b> <a class="float-right"><%=data.mobileno %></a>
                   </li>
                 </ul>
-
                 <a href="/admin/faculty_profile" class="btn btn-primary btn-block"><b>MyProfile</b></a>
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
-
             <!-- About Me Box -->
             <div class="card card-primary">
               <div class="card-header">
@@ -335,16 +321,13 @@
               <div class="card-body">
                 <strong><i class="fas fa-pencil-alt mr-1"></i> DOB</strong>
                 <% var datemonth=data.dob.getMonth()+1 %>
-                <p class="text-muted"><%=data.dob.getDate()+"-"+datemonth +"-"+ data.dob.getFullYear()%> </p>
+                <p class="text-muted"><%=data.dob.getDate()+"-"+datemonth+"-"+ data.dob.getFullYear()%> </p>
                 <hr>
                 
                 <strong><i class="fas fa-map-marker-alt mr-1"></i>Address</strong>
-
                 <p class="text-muted"><%=data.address %><br><%=data.city %><br> <%=data.state %></p>
                 
-
                 <hr>
-
               </div>
               <!-- /.card-body -->
             </div>
@@ -366,9 +349,8 @@
                     <!-- Post -->
                     
                   <!-- /.tab-pane -->
-
                   <div class="tab-pane" id="settings">
-                    <form action="/admin/update"  method="POST" validate form-horizontal">
+                    <form action="/admin/update"  method="POST" validate form-horizontal>
                       <div class="form-group row">
                         <label for="inputName" class="col-sm-2 col-form-label">First Name</label>
                         <div class="col-sm-4">
@@ -421,14 +403,14 @@
                         <label for="date-picker" class="col-sm-2 col-form-label">DOB</label>
                         <div class="col-sm-4">                                                                     
                           <!--<%=data.dob.getDate()+'-'+datemonth +'-'+ data.dob.getFullYear() %>--> 
-                          <input type="text" class="form-control" name="dob"  id="date-picker" required    value= " <%= data.dob.getDate() +" -"+ datemonth +"-"+ data.dob.getFullYear() %> " >
+                          <input type="text" class="form-control" name="dob"  id="date-picker" required    value= "<%=data.dob.getFullYear() +'-'+ datemonth +'-'+data.dob.getDate()%> " >
                         </div>
                       </div>
                       <div class="form-group row">
                         <label for="inputExperience" class="col-sm-2 col-form-label">Address</label>
                         
                           <div class="col-sm-6">
-                            <textarea class="form-control" id="inputExperience" required  name="address" placeholder="Enter your address"  > <%=data.address %></textarea>
+                            <textarea class="form-control" id="inputExperience" required  name="address" placeholder="Enter your address"> <%=data.address %></textarea>
                           </div>
                         </div>
                       </div>
@@ -489,7 +471,6 @@
       <b>Version</b> 1.1.0-rc
     </div>
   </footer>
-
   <!-- Control Sidebar -->
    <!-- Control sidebar content goes here -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -498,7 +479,6 @@
   <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
 <!-- jQuery -->
 <script src="/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AMS | Dashboard</title>
+  <title>AMS | Attendance</title>
   <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet"
@@ -36,10 +36,11 @@
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="/student/dashboard" class="nav-link">Dashboard</a>
+        </li>
       </ul>
-      <!-- Right navbar links -->
       <ul class="navbar-nav ml-auto">
-
         <li class="nav-item">
           <a class="nav-link" data-widget="fullscreen" href="#" role="button">
             <i class="fas fa-expand-arrows-alt" data-bs-toggle="tooltip" data-bs-placement="left"
@@ -48,22 +49,16 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-            <!-- <button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
-            Tooltip on top
-          </button> -->
             <i class="fas fa-th-large" data-bs-toggle="tooltip" data-bs-placement="left" title="Dark mode"></i>
           </a>
         </li>
       </ul>
     </nav>
-    <!-- /.navbar -->
-    <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
       <a href="/Login" class="brand-link">
         <i class="fas fa-arrow-circle-left"></i>
-        <!-- <img src="/img/logout.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8"> -->
-        <span class="brand-text font-weight-light" id="logout">Logout</span>
+        <span class="brand-text font-weight-light">Logout</span>
       </a>
       <!-- Sidebar -->
       <div class="sidebar">
@@ -74,7 +69,8 @@
           </div>
           <div class="info">
             <a href="/student/student_profile" class="d-block">
-              <%= userData %>
+              <%= userData%>
+            </a>
           </div>
         </div>
         <!-- SidebarSearch Form -->
@@ -91,8 +87,6 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-            <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
             <li class="nav-item menu-open">
               <a href="/student/dashboard" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
@@ -136,7 +130,6 @@
                 </li>
               </ul>
             </li>
-
             <li class="nav-item">
               <a href="#" class="nav-link">
                 <i class="nav-icon fas fa-edit"></i>
@@ -154,10 +147,9 @@
                 </li>
               </ul>
             </li>
-
-            <li class="nav-item ">
+            <li class="nav-item menu-open">
               <a href="#" class="nav-link ">
-                <i class="nav-icon  fas fa-copy"></i>
+                <i class="nav-icon fas fa-copy"></i>
                 <p>
                   Attendance
                   <i class="fas fa-angle-left right"></i>
@@ -166,14 +158,14 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="/student/report/period" class="nav-link ">
+                  <a href="/student/report/period" class="nav-link active">
                     <i class="far fa-dot-circle nav-icon"></i>
-                    <p>Report by period</p>
+                    <p>Report by Period</p>
                   </a>
                 </li>
-
               </ul>
             </li>
+          </ul>
         </nav>
         <!-- /.sidebar-menu -->
       </div>
@@ -186,12 +178,14 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0">Dashboard</h1>
+              <h1 class="m-0">Attendance</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <!-- <li class="breadcrumb-item"><a href="#">Home</a></li> -->
-                <li class="breadcrumb-item active">Dashboard</li>
+                <li class="breadcrumb-item ">Dashboard</li>
+                <li class="breadcrumb-item ">Attendance</li>
+                <li class="breadcrumb-item active">report </li>
               </ol>
             </div><!-- /.col -->
           </div><!-- /.row -->
@@ -201,70 +195,77 @@
       <!-- Main content -->
       <section class="content">
         <div class="container-fluid">
-          <!-- Small boxes (Stat box) -->
           <div class="row">
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-info">
-                <div class="inner">
-                  <h3>33</h3>
-                  <p>Students</p>
-                </div>
-                <div class="icon">
-                  <i class="fas fa-id-card-alt"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-success">
-                <div class="inner">
-                  <h3>5<sup style="font-size: 20px"></sup></h3>
-                  <p>Faculty</p>
-                </div>
-                <div class="icon">
-                  <i class="fas fa-chalkboard-teacher"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-              <!-- small box -->
-              <div class="small-box bg-warning">
-                <div class="inner">
-                  <h3>40</h3>
-                  <p>Users</p>
-                </div>
-                <div class="icon">
-                  <i class="ion ion-person-add"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-              </div>
-            </div>
-            <!-- ./col -->
-            <div class="col-lg-3 col-6">
-              <div class="small-box bg-danger">
-                <div class="inner">
-                  <h3>1</h3>
-                  <p>Class</p>
-                </div>
-                <div class="icon">
-                  <i class="fas fa-chalkboard"></i>
-                </div>
-                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <!-- left column -->
+            <div class="col-md-5">
+              <div class="card card-primary">
+                <form action="/report/period" method="POST">
+                  <div class="card-header">
+                    <h3 class="card-title">Report Generate</h3>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="form-group">
+                      <% if(success!=''){%>
+                        <div class="alert alert-danger alert-dismissible col-12" id="success-alert">
+                          <a href="#" class="close"  data-dismiss="alert" aria-label="close">&times;</a>
+                          <%= success %>
+                        </div>
+                        <%}%>
+                      <label for="semester" class=" col-form-label">Choose Semester</label><br>
+                      <select class="form-control select2 col-md-7" id="semester" name="semester" required>
+                        <option value="">Choose</option>
+                        <option value="5">Semester 5</option>
+                        <option value="6">Semester 6</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="time" class=" col-form-label">Choose Time</label><br>
+                      <select class="form-control select2 col-md-7" id="time" name="time" required>
+                        <option value="">Choose</option>
+                        <option value="8:30 - 9:15">8:30 - 9:15</option>
+                        <option value="9:15 - 10.00">9:15 - 10.00</option>
+                        <option value="10:00 - 10.45">10:00 - 10.45</option>
+                        <option value="11.00 - 11.45">11.00 - 11.45</option>
+                        <option value="11:45 - 12:30">11:45 - 12:30</option>
+                        <option value="1:20 - 2:05">1:20 - 2:05</option>
+                        <option value="2:05 - 2:50">2:05 - 2:50</option>
+                        <option value="3:05 - 3:50">3:05 - 3:50</option>
+                        <option value="3:50 - 4:35">3:50 - 4:35</option>
+                        <option value="4:35 - 5:30">4:35 - 5:30</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputsub">Subject Code</label>
+                      <select class="form-control select2 col-md-7" id="inputSub" name="sub_code">
+                        <option value="">Choose</option>
+                        <% if( subject_code.length!=0){%>
+                          <%subject_code.forEach(function(data){%>
+                            <option value="<%=data.sub_code %>">
+                              <%=data.sub_code %>
+                            </option>
+                            <% })%>
+                              <% } %>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="inputdate">Date </label>
+                      <div class="col-sm-7">
+                        <input type="date" class="  form-control rounded-0" name="date" id="inputdate" required>
+                      </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
-
+        </div>
       </section>
       <!-- /.Left col -->
       <!-- right col (We are only adding the ID to make the widgets sortable)-->
       <section class="col-lg-5 connectedSortable">
     </div>
-
     <!-- /.card-body -->
   </div>
   <!-- /.card -->
@@ -325,15 +326,5 @@
   <script src="/dist/js/demo.js"></script>
   <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
   <script src="/dist/js/pages/dashboard.js"></script>
-  <script>
-    $(function () {
-      $('#logout').click(function () {
-        if (confirm('Are you sure to logout')) {
-          return true;
-        }
-        return false;
-      });
-    });
-  </script>
 </body>
 </html>
